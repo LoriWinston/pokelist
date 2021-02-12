@@ -5,9 +5,9 @@ import {
   Route, 
   Switch,
 } from 'react-router-dom';
-import HomePage from './Components/HomePage.js';
-import SearchPage from './Components/SearchPage.js';
-import Header from './Components/Header.js';
+import HomePage from './Components/HomePage';
+import SearchPage from './Components/SearchPage';
+import Header from './Components/Header';
 
 export default class App extends Component {
   render() {

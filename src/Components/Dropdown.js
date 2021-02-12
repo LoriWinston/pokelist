@@ -8,11 +8,9 @@ export default class Dropdown extends Component {
             onChange={this.props.handleChange}
           >
                 {
-                  // we are passed an array of options from the parent
-                  this.props.options.map(
-                    // for each list item
+              
+                  this.props.options.map(  
                     listItem => 
-                    // we make an html tag using that list item
                     <option value={listItem}> {listItem} </option>)
                 }
           </select> 

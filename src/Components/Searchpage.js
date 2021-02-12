@@ -12,9 +12,10 @@ export default class SearchPage extends React.Component {
         pokemonArray: pokeData,
         type_1A: '',
         type_2: '',
-        sortBy: 'pokemon',
+        sortBy: '',
         query: '',
         _id:'',
+        order: 'ascending'
         
       }
  
@@ -26,15 +27,19 @@ export default class SearchPage extends React.Component {
 
   handleInputChange = (e) => { this.setState({ query: e.target.value })}
 
-
+  handleAscendingChange = (e) => { this.setState({ order: e.target.value })}
   render() {
 
-    console.log(this.state, 'IDK')
 
     if(this.state.sortBy){
        
-            this.state.pokemonArray.sort((a,b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
+//SORT
+if (this.state.order === 'ascending'){
+    this.state.pokemonArray.sort((a,b) => a[this.state.sortBy].localeCompare(b[this.state.sortBy]))
+} else {
+    this.state.pokemonArray.sort((a,b) => b[this.state.sortBy].localeCompare(a[this.state.sortBy]))
 }
+    }
 
       const filteredPoke = this.state.pokemonArray.filter((newPoke) => {
           if(!this.state.query){
@@ -53,6 +58,16 @@ export default class SearchPage extends React.Component {
         <>
           <input onChange={this.handleInputChange} placeholder='search bar'/>
           
+          <select onChange={this.handleAscendingChange}>
+            <option value="ascending">ascending</option>
+            <option value="descending">descending</option>
+          </select>
+          <select onChange={this.handleSortChange}>
+            <option value="shape">shape</option>
+            <option value="pokemon">pokemon</option>
+          </select>
+
+
            <PokeList filteredPoke={filteredPoke} />
         </>
     );

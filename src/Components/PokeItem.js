@@ -10,6 +10,7 @@ class PokeItem extends React.Component {
             <p>Height: {this.props.height}</p>
             <p>Type 1: {this.props.type_1}</p>
             <p>Type 2: {this.props.type_2}</p>
+            <p>Shape: {this.props.shape}</p>
         </div>
       )
     }
