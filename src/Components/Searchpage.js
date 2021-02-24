@@ -69,6 +69,7 @@ if (this.state.order === 'ascending'){
 
 
            <PokeList filteredPoke={filteredPoke} />
+           {/* Add searchbar and button */}
         </>
     );
   }
